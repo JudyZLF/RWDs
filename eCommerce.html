@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  
+}
+
+
+#root {
+/*   display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  font-family: sans-serif;
+  font-size: 24px; 
+  background-color:#f1f1f1;
+  margin: 0;
+  
+  float:left;
+}
+
+.header {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  width:100%;
+  height:50%;
+/*   outline:20px solid white; */
+}
+
+.header img{
+  width:100%;
+  height:100%;
+
+}
+
+div.brand{
+  position: absolute;
+  top: 20%;
+  margin-left: 1%;
+  width: 200px;
+  height: 100px;
+  letter-spacing:10px;
+  color:white;
+}
+
+div.search{
+  position: absolute;
+  top: 20%;
+/*   margin-right: 1%; */
+  width: 200px;
+  height: 100px;
+  letter-spacing:10px;
+  color:white;
+}
+
+p.slogan{
+  position: absolute;
+  top: 25%;
+  margin-left: 20%;
+  width: 100%;
+  line-height: 50px;
+  letter-spacing:8px;
+  color:white;
+  font-size:40px;
+  text-align:left;
+  
+}
+
+/* p.author {
+  position: absolute;
+  top: 200px;
+  margin-left: 100px;
+  width: 50%;
+  line-height: 50px;
+  letter-spacing:10px;
+  color:white;
+  text-align:left;
+  font-size:20px;
+} */
+.nav {
+  padding-left:15%;
+  padding-bottom:20px;
+  width:100%;
+  background-color:#f1f1f1;
+  
+}
+.topnav {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  margin: auto;
+  width: 50%;
+  
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #666;
+  font-size:20px;
+  padding: 10px;
+  text-decoration: none;
+  color:#666;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+/*   background-color: #ddd; */
+  border-top: 1px solid black;
+  color: black;
+}
+
+.topnav a.active {
+/*   background-color: #ddd; */
+  border-top: 1px solid black;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 80%;
+/*   padding: 15px; */
+  background-color:#f1f1f1;
+  text-align:center;
+}
+
+.row{
+  background-color:#f1f1f1;
+  text-align:center;
+}
+
+.sidecolumn {
+  float: left;
+  width: 10%;
+  height:auto;
+  padding: 15px;
+  background-color:#f1f1f1;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.iterm-list{
+  position:absolute;
+  width:100%;
+  height:auto;
+  text-align:center;
+  padding:0 100px;
+/*   background-color:#f1f1f1; */
+}
+
+
+div.gallery {
+  width:25%;
+  height:auto;
+  float:left;
+  margin:auto;
+  padding: 30px 10px;
+  background-color:#f1f1f1;
+  text-align:center;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 250px;
+}
+
+div.desc {
+  padding: 5px;
+  font-size:14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+div.desc span.price{
+  display:block;
+  font-size:12px;
+  color:#666;
+}
+
+.pagination {
+  background-color:#f1f1f1;
+  font-size: 16px;
+}
+
+.pagination a {
+  color: black;
+  padding:14px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  border-bottom:1px solid black;
+}
+
+.pagination a:hover:not(.active){
+  border-bottom:1px solid black;
+}
+
+.footer{
+  margin:10px;
+  background-color:white;
+  float:left;
+  font-size: 12px;
+  color:#666;
+
+}
+
+.footer span{
+  margin:40px; 
+  font-size:12px;
+  color:#ccc;
+}
+
+.footer li{
+  list-style:none;
+  text-align:left;
+  padding-top:4px;
+  line-height:20px;
+}
+
+@media screen and (max-width:768px) {
+  p.slogan{
+    display:none;
+  }
+  
+  .topnav a {
+    float: left;
+    display: inline-block;
+    color: #666;
+    font-size:16px;
+/*     padding: 5px; */
+    text-decoration: none;
+    color:#666;
+  }
+}
+
+@media screen and (max-width:600px) {
+  
+  .column {
+    width: 100%;
+  }
+  .sidecolumn{
+    width:0;
+  }
+  div.gallery {
+    width: 100%;
+    float: left;
+  }
+  
+  p.slogan{
+    display:none;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="header">
+    <img id="hero" src="?">
+    <div class="brand">MOKUZAI</div>
+<!--     <div class="search">search</div> -->
+    <p class="slogan">
+      Great design is eliminating
+      <br>
+      all unnecessary details
+    </p>
+    
+  </div>
+  <div class="nav">
+    <div class="topnav">
+      <a href="#">Most Popular</a>
+      <a href="#">Lowest Price</a>
+      <a href="#">Highest Price</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="sidecolumn"></div>
+    <div class="column">
+<!--       gallery -->
+      <div id="iterm-list">
+   
+        
+      </div>
+ 
+<!--      gallery end  -->
+    <div class="sidecolumn"></div>
+  </div>
+
+  <div class="row"></div>
+<!-- pagination start   -->
+  <div class="row">
+    <div class="sidecolumn"> </div>
+    <div class="column">
+      <ul class="pagination">
+        <a href="#">01</a>
+        <a href="#" class="active">02</a>
+        <a href="#">03</a>
+        <a href="#">04</a>
+      </ul>
+    </div>
+    <div class="sidecolumn"> </div>
+  </div>
+<!--  pagination end  -->  
+    
+  <!-- footer start   -->
+  <div class="row" style="margin:0; padding:0; background-color:white;display:block;">
+    <div class="footer">
+      <span>INFO</span>
+      <ul>
+        <li>About</li>
+        <li>Journal</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="footer">
+      <span>CATEGURIES</span>
+      <ul>
+        <li>Wood</li>
+        <li>Fashion</li>
+        <li>UX stuff</li>
+      </ul>
+    </div>
+    <div class="footer">
+      <span>FOLLOW</span>
+      <ul>
+        <li style="color:blue;">Facebook</li>
+        <li style="color:lightblue;">Twitter</li>
+        <li>Instagram</li>
+        <li style="color:darkred;">Pinterest</li>
+      </ul>
+    </div>
+
+  </div>
+<!--  footer end  -->  
+  
+    
+  
+  <div class="clearfix"></div>
+</div>
+
+<script language="javascript">
+const ASSETS = {
+  mockup:
+    'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2FMockup.png?alt=media&token=86310acc-1373-44a9-a3c9-ddd0580f9b11',
+  hero:
+    'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fhero.png?alt=media&token=83f29b93-3c2e-4e50-8641-0eda16a0d960',
+};
+
+const ITEMS = [
+  {
+    title: 'Walnut Speakers & Amp',
+    price: 599,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fwalnut_speakers.png?alt=media&token=d93fffb6-934f-4e5b-894f-53dd76f12758',
+  },
+  {
+    title: 'Maple Lamp',
+    price: 109,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fmaple_lamp.png?alt=media&token=dbf69300-4590-4490-ab14-82c901b50e9f',
+  },
+  {
+    title: 'Walnut Planter',
+    price: 39,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fwalnut_planter.png?alt=media&token=b7692959-ef86-474d-8166-5db596de1c0a',
+  },
+  {
+    title: 'M18 Chair, Grey Wool Felt',
+    price: 330,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fm18_chair.png?alt=media&token=e85dfda9-3354-4917-8b29-5fc10967ac79',
+  },
+  {
+    title: 'Pliot Stool, Black',
+    price: 265,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fpilot_stool.png?alt=media&token=e2dde4e8-60ba-476a-b208-4d5d2e7e96e5',
+  },
+  {
+    title: 'B&O BeoPlay A9 - Rose Gold',
+    price: 2999,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fbeoplay.png?alt=media&token=d5529aa4-0489-4b2b-987d-6ae27c9391bf',
+  },
+  {
+    title: 'Joey Roth CRM-001 Ceramic',
+    price: 495,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fjoey_roth.png?alt=media&token=d4a1b728-e23d-41e6-bee2-7e186ba99d78',
+  },
+  {
+    title: 'V5BT Bamboo Speaker',
+    price: 200,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fv5bt_bamboo.png?alt=media&token=9427be8b-ed72-4707-91bb-00a78f755c4f',
+  },
+  {
+    title: 'Walnut iPhone Case',
+    price: 79,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fwalnut_iphone.png?alt=media&token=582a2057-44c8-4188-a4c8-18ed150989df',
+  },
+  {
+    title: 'Walnut Watch (Round)',
+    price: 239,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fwalnut_watch.png?alt=media&token=7b6cff3c-6a0e-4249-bebb-d3bb1978bc70',
+  },
+  {
+    title: 'Polk Audio Wireless',
+    price: 705,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fpolk_audio.png?alt=media&token=bf4f68f5-e9c6-4a75-bc35-aacb55986a63',
+  },
+  {
+    title: 'Zebra Series Varberg Table',
+    price: 89,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fzebra_series.png?alt=media&token=92a63799-6e87-44ce-8c15-68f3d160d3be',
+  },
+  {
+    title: 'POTS Pedestal Set',
+    price: 67,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fpots_pedestal.png?alt=media&token=1b21646c-5d4d-41d7-8cf0-212e1a5dab0d',
+  },
+  {
+    title: 'SoundLink Bluetooth Mobile',
+    price: 300,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fsoundlink_bluetooth.png?alt=media&token=5d8029fc-1760-4b22-b293-9ac29eb3d251',
+  },
+  {
+    title: 'Wall Clock OJ Black 31.5"',
+    price: 100,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fwall_clock.png?alt=media&token=41a3acb0-6b08-4146-9706-f22ac05905c0',
+  },
+  {
+    title: 'Cherry Wood Graph 3-Pack',
+    price: 10,
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/production2hats.appspot.com/o/studentPortal%2Fassessment-web-design%2Fcherry_wood.png?alt=media&token=a70a9ac4-21a1-4933-8a41-f214debcff57',
+  },
+];
+
+</script>
+
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+<script language="javascript">
+  $(document).ready(function(){ 
+　　 document.getElementById("hero").src = ASSETS.hero;
+     
+    for (var key in ITEMS){
+    
+      $("#iterm-list").append("<div class='gallery'><a target='_blank' href='#'><img src='"+ITEMS[key].image+"' width='600' height='400'></a><div class='desc'><span>"+ITEMS[key].title+"</span><span class='price'>$"+Number(ITEMS[key].price).toFixed(2)+"</span></div></div>");
+    }
+     
+  }); 
+</script>
+
+</body>
+</html>
