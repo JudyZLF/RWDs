@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<body>  
+    <canvas id="canvas" width="1200px" height="800px"></canvas>
+    <script type="text/javascript">
+        var canvas=document.getElementById("canvas");//get canvas element
+        var ctx=canvas.getContext("2d");//create instance of canvas
+        //create circle class
+        var Circle = function(x,y,radius,options,speeds){
+            this.w = canvas.width;
+            this.h = canvas.height;
+            this.ctx = ctx;
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.options = options;
+            this.speed = speeds;
+        }
+
+        Circle.prototype={
+            //draw method for circle
+            draw:function(){
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = this.options.strokeStyle;
+                this.ctx.lineWidth = this.options.lineWidth;
+                this.ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,true);
+                this.ctx.stroke();
+            },
+            //move method speed added by itself, redraw the circle
+            move:function(){
+                this.x+=this.speed.speedX;
+                this.y+=this.speed.speedY;
+                this.draw();
+            }
+        }
+
+        //render canvas
+        var Frame = function(){
+            this.w = canvas.width;
+            this.h = canvas.height;
+            this.ctx = ctx;
+            this.circles = [];
+            this.sint = null;
+        }
+        Frame.prototype={
+            //star time, loop for the render
+            star:function(){
+                this.sint = setInterval((function(progra) {
+                    return function(){progra.render();}
+                })(this),40);//修改帧数,40后重新渲染
+            },
+            //render method
+            render:function(){
+                //clean pre frame
+                this.ctx.clearRect(0,0,canvas.width,canvas.height);
+                //run the move method and listen the deriction of circle
+                for(i in this.circles){
+                    this.circles[i].move();
+                    if(this.circles[i].x>canvas.width-this.circles[i].radius-this.circles[i].options.lineWidth/2 || this.circles[i].x<0+this.circles[i].radius+this.circles[i].options.lineWidth/2){
+                        this.circles[i].speed.speedX=-this.circles[i].speed.speedX;
+                        delete this.circles[i];//delete the instance of circle, and the circle will be unshown
+                    }
+                    if(this.circles[i].y>canvas.height-this.circles[i].radius-this.circles[i].options.lineWidth/2 || this.circles[i].y<0+this.circles[i].raduis+this.circles[i].options.lineWidth/2)
+                        this.circles[i].speed.speedY=-this.circles[i].speed.speedY;
+                }
+
+            }
+        }
+        /**Main */
+        var f = new Frame();
+        //create 20 circles
+        for(var i=0;i<20;i++){
+            var speed={
+                speedX:Math.random()*10-5,
+                speedY:Math.random()*10-5
+            }
+            var r = Math.floor(Math.random()*256);
+            var b = Math.floor(Math.random()*256);
+            var g = Math.floor(Math.random()*256);
+            //input the random color
+            var option={
+                strokeStyle:'rgb('+r+','+g+','+b+')',
+                lineWidth:2
+            }
+            //create instance
+            var circle = new Circle(Math.random()*100+canvas.width/2,Math.random()*100+canvas.height/2,Math.random()*50+10,option,speed);
+            f.circles[i]=circle;
+        }
+        
+            f.star();
+        
+        
+      </script>
+     </body>
+</html>
